@@ -1,0 +1,14 @@
+let drm1 = stack(
+  s("bd ~ <bd bd*2> ~").shape("{.4 .7 .9 .5}%5")
+  .bank('RolandTR505')
+  , s("~ ~ sd ~").shape("{.3 .5 .3 .7}%1")
+  .bank('RolandTR505')
+  , s("~ hh ~ hh").gain("{1 1.45 1.7}%2")
+  .bank('RolandTR505')
+).jux(iter("{1 1 4 1 1 4 1 1}%4"))
+
+let bass1 = ("{e2 b1 d2 [a1!6 d2 d#2]}%.25").struct("x*8").note().s("[square]").gain(1.6).lpf(222).shape("{.7 .5 .45 .4 .45 .5 .45 .4}%8")
+
+let lead1 = chord("<Em Bm D Am>/2").anchor("<E5 A5 E6 E5>/2").voicing().s('square').lpf(888).shape("{.3 .5}%.5")
+
+stack(drm1, bass1, lead1)
